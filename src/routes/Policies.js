@@ -94,10 +94,7 @@ router.post("/", async (req, res) => {
 // GET /api/policies — Get all policies
 router.get("/", async (req, res) => {
   try {
-    const result = await pool.query(
-      "SELECT * FROM policies ORDER BY created_at DESC",
-    );
-
+    const result = await pool.query("SELECT * FROM policies ORDER BY id DESC");
     res.json(result.rows);
   } catch (err) {
     console.error("Error fetching policies:", err.message);
